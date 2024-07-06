@@ -2,12 +2,12 @@
 
 **This project demonstrates how to create a reusable tracking component using HTML, CSS, bootstrap and JavaScript. The component dynamically generates tracking items based on a provided dataset, reducing redundancy and improving maintainability.**
 
-Technologies Used :
+## Technologies Used :
 
-> HTML
-> CSS
-> JavaScript
-> Bootstrap
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
 
 ## Setup Instructions
 
