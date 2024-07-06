@@ -4,6 +4,8 @@
 
 #tracking {
 	margin-bottom: 1rem;
+	display: grid;
+	justify-items: center;
 }
 
 [class*="tracking-status-"] p {
@@ -155,4 +157,9 @@ img {
 .tracking-item .tracking-content {
 	padding: 0;
 	background-color: transparent;
+}
+@media screen and (max-width: 768px) {
+	.tracking-item {
+		margin-left: 7rem;
+	}
 }
