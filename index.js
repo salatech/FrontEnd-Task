@@ -91,13 +91,41 @@ const createTrackingItem = (item) => {
             <div class="tracking-content"></div>
         `;
 	} else {
+		let content = item.content;
+		let truncatedContent = content;
+		if (
+			window.matchMedia("(max-width: 768px)").matches &&
+			content.length > 20
+		) {
+			truncatedContent = content.substring(0, 20) + "...";
+		}
 		trackingItem.innerHTML = `
             <div class="tracking-icon">
                 <img src="${item.iconContent}" alt="">
             </div>
             <div class="tracking-date">${item.date}</div>
-            <div class="tracking-content">${item.content}<span style="display: flex;"><span class="content-image"><img src="${item.assets}" alt=""></span>${item.name}</span></div>
+            <div class="tracking-content">
+                <span class="full-content" style="display: none;">${content}</span>
+                <span class="tracking-content">${truncatedContent}</span>
+                <span style="display: flex; color: #888;">
+                    <span class="content-image"><img src="${item.assets}" alt=""></span>${item.name}
+                </span>
+            </div>
         `;
+
+		trackingItem
+			.querySelector(".tracking-content")
+			.addEventListener("click", function () {
+				const fullContent = this.querySelector(".full-content");
+				const truncatedContent = this.querySelector(".tracking-content");
+				if (fullContent.style.display === "none") {
+					fullContent.style.display = "inline";
+					truncatedContent.style.display = "none";
+				} else {
+					fullContent.style.display = "none";
+					truncatedContent.style.display = "inline";
+				}
+			});
 	}
 
 	return trackingItem;
